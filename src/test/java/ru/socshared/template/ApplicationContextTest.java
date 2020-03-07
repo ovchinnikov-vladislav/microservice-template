@@ -11,12 +11,10 @@ import ru.socshared.template.integration.AbstractIT;
 import static org.junit.Assert.*;
 
 public class ApplicationContextTest extends AbstractIT {
-    @Autowired
-    private Application application;
 
     @Test
     public void checkContextStarts() {
-        assertNotNull(application);
+
     }
 
 }
