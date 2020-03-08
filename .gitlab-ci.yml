@@ -3,24 +3,14 @@ services:
   - docker:dind
 
 stages:
-  - compile
-  - test
   - build
 
 before_script:
   - chmod +x gradlew
 
-compile:
-  stage: compile
-  script: ./gradlew compileJava
-
-test:
-  stage: test
-  script: ./gradlew check
-
 build:
   stage: build
-  script: ./gradlew bootJar
+  script: ./gradlew clean build
   artifacts:
     paths:
       - build/libs/microservice-template-1.0.0-SNAPSHOT.jar
