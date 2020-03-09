@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
     id 'org.springframework.boot' version '2.2.4.RELEASE'
     id "io.freefair.lombok" version "5.0.0-rc4"
 }
@@ -31,15 +30,11 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 }
 
-application {
-    mainClassName = 'ru.socshared.template.App'
-}
-
 bootJar {
     baseName = 'microservice-template'
     version = '1.0.0-SNAPSHOT'
 }
 
 springBoot {
-    mainClassName = 'ru.socshared.template.App'
+    mainClassName = 'ru.socshared.template.Application'
 }
