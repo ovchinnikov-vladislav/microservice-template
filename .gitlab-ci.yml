@@ -1,6 +1,4 @@
-image: docker:latest
-services:
-  - docker:dind
+image: java:11
 
 stages:
   - build
@@ -20,10 +18,10 @@ build:
 docker-build:
   stage: docker-build
   script:
-    - docker build -t vee97/socshared/microservice-template .
+    - sudo docker build -t vee97/socshared/microservice-template .
 
 docker-push:
   stage: docker-push
   script:
-    - docker login -u "vee97" -p "RabbitVlad1997"
-    - docker push vee97/socshared/microservice-template
+    - sudo docker login -u "vee97" -p "RabbitVlad1997"
+    - sudo docker push vee97/socshared/microservice-template
