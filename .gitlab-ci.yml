@@ -1,4 +1,6 @@
-image: java:11
+image: docker:latest
+services:
+  - docker:dind
 
 stages:
   - build
