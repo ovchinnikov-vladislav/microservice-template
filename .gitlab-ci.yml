@@ -20,6 +20,7 @@ build:
 docker-build:
   stage: docker-build
   script:
+    - ls
     - sudo docker build -t vee97/socshared/microservice-template .
 
 docker-push:
