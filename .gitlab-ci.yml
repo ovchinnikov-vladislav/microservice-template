@@ -4,6 +4,7 @@ stages:
   - build
   - docker-build
   - docker-push
+  - docker-deploy-swarm
 
 before_script:
   - chmod +x gradlew
@@ -25,3 +26,8 @@ docker-push:
   script:
     - sudo docker login -u "vee97" -p "RabbitVlad1997"
     - sudo docker push vee97/socsh-microservice-template
+
+docker-deploy-swarm:
+  stage: docker-deploy-swarm
+  script:
+    - sudo docker stack deploy -c docker-compose.yaml microservice-template
