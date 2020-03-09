@@ -1,4 +1,4 @@
-package ru.socshared.template.api.v1;
+package ru.socshared.template.api.v1.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
