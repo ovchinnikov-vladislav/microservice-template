@@ -14,18 +14,18 @@ build:
   script: ./gradlew clean build
   artifacts:
     paths:
-      - build/libs/microservice-template-1.0.0-SNAPSHOT.jar
+      - build/libs/socshared-microservice-template-1.0.0-SNAPSHOT.jar
 
 docker-build:
   stage: docker-build
   script:
-    - sudo docker build -t vee97/socsh-microservice-template .
+    - sudo docker build -t vee97/socshared-microservice-template .
 
 docker-push:
   stage: docker-push
   script:
     - sudo docker login -u "vee97" -p "RabbitVlad1997"
-    - sudo docker push vee97/socsh-microservice-template
+    - sudo docker push vee97/socshared-microservice-template
 
 docker-deploy-swarm:
   stage: docker-deploy-swarm
