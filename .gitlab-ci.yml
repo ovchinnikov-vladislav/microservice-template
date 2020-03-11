@@ -30,4 +30,4 @@ docker-push:
 docker-deploy-swarm:
   stage: docker-deploy-swarm
   script:
-    - sudo docker stack deploy -c docker-compose.yaml microservice-template
+    - sudo docker stack deploy -c docker-compose.yaml socshared

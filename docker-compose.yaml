@@ -1,7 +1,7 @@
 version: '3'
 services:
   microservice-template:
-    container_name: microservice-template
+    container_name: socshared-microservice-template
     image: vee97/socshared-microservice-template
     ports:
       - 8080:8080
