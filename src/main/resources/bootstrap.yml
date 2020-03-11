@@ -5,7 +5,7 @@ server:
       enabled: false
 spring:
   application:
-    name: microservice-template
+    name: socshared-microservice-template
   cloud:
     kubernetes:
       config:
