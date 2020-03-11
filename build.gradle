@@ -31,10 +31,10 @@ dependencies {
 }
 
 bootJar {
-    baseName = 'microservice-template'
+    baseName = 'socshared-microservice-template'
     version = '1.0.0-SNAPSHOT'
 }
 
 springBoot {
-    mainClassName = 'ru.socshared.template.Application'
+    mainClassName = 'ml.socshared.template.Application'
 }
