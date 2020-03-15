@@ -1,5 +1,6 @@
 package ml.socshared.template.controller.v1;
 
+import ml.socshared.template.service.TestService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -17,6 +18,12 @@ import java.util.Objects;
 @RequestMapping(value = "/api/v1")
 public class HelloController implements HelloApi {
 
+    private TestService service;
+
+    public HelloController(TestService service) {
+        this.service = service;
+    }
+
     @Override
     @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, String> printHelloWorld() {
@@ -25,9 +32,9 @@ public class HelloController implements HelloApi {
         };
     }
 
-    @GetMapping(value = "/ip", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String ip() throws UnknownHostException {
-        return InetAddress.getLocalHost().getHostAddress();
+    @GetMapping(value = "/feign", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String testFeign() {
+        return service.test();
     }
 
 }
