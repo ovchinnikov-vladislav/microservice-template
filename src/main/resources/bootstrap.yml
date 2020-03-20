@@ -6,5 +6,3 @@ server:
 spring:
   application:
     name: socshared-microservice-template
-keycloak:
-  enabled: false

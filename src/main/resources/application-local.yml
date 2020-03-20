@@ -1,2 +1,12 @@
 keycloak:
-  enabled: false
+  realm: socshared
+  auth-server-url: http://localhost:9090/auth
+  ssl-required: none
+  resource: socshared-mt
+  use-resource-role-mappings: false
+  principal-attribute: preferred_username
+  cors: true
+  bearer-only: true
+spring:
+  zipkin:
+    base-url: http://localhost:9411

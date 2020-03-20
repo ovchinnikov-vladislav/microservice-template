@@ -1,5 +1,10 @@
 version: '3'
 services:
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin:2
+    ports:
+      - 9411:9411
   microservice-template:
     container_name: socshared-microservice-template
     image: vee97/socshared-microservice-template
