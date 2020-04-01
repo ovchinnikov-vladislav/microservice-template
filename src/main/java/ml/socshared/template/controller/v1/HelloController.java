@@ -1,6 +1,7 @@
 package ml.socshared.template.controller.v1;
 
 import ml.socshared.template.service.TestService;
+import org.keycloak.KeycloakPrincipal;
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,13 @@ public class HelloController implements HelloApi {
     @Override
     @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, String> printHelloWorld(KeycloakAuthenticationToken token) {
+        String systemUserId = ((KeycloakPrincipal) token.getPrincipal()).getKeycloakSecurityContext().getToken().getSubject();
+
         return new HashMap<>() {
-            { put("text", "Hello, World"); }
+            {
+                put("text", "Hello, World");
+                put("systemUserId", systemUserId);
+            }
         };
     }
 
