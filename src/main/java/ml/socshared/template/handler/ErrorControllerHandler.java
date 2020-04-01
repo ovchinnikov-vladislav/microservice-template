@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 
 @RestController
 public class ErrorControllerHandler implements ErrorController {
@@ -25,6 +26,7 @@ public class ErrorControllerHandler implements ErrorController {
         error.setMessage(message);
         error.setPath(path);
         error.setStatus(statusCode);
+        error.setTimestamp(LocalDateTime.now());
 
         return error;
     }
