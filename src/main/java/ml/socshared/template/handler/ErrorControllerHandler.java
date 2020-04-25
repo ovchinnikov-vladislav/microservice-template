@@ -17,7 +17,6 @@ public class ErrorControllerHandler implements ErrorController {
     @GetMapping(value = PATH, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestApiError error(HttpServletRequest request) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
         String path = (String) request.getAttribute("javax.servlet.error.request_uri");
         String message = (String) request.getAttribute("javax.servlet.error.message");
 
@@ -26,7 +25,6 @@ public class ErrorControllerHandler implements ErrorController {
         error.setMessage(message);
         error.setPath(path);
         error.setStatus(statusCode);
-        error.setTimestamp(LocalDateTime.now());
 
         return error;
     }

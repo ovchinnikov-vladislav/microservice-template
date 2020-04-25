@@ -28,9 +28,7 @@ public class HelloController implements HelloApi {
 
     @Override
     @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HashMap<String, String> printHelloWorld(KeycloakAuthenticationToken token) {
-        String systemUserId = ((KeycloakPrincipal) token.getPrincipal()).getKeycloakSecurityContext().getToken().getSubject();
-
+    public HashMap<String, String> printHelloWorld() {
         return new HashMap<>() {
             {
                 put("text", "Hello, World");
@@ -40,7 +38,7 @@ public class HelloController implements HelloApi {
     }
 
     @GetMapping(value = "/feign", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String testFeign(KeycloakAuthenticationToken token) {
+    public String testFeign() {
         return service.test();
     }
 

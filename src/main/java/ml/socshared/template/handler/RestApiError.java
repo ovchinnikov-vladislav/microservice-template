@@ -6,10 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.core.NestedExceptionUtils;
+import ml.socshared.template.exception.SocsharedErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.ServletWebRequest;
-import ml.socshared.template.exception.AswErrors;
 
 import java.time.LocalDateTime;
 
@@ -28,14 +27,12 @@ public class RestApiError {
     private String path;
     private String message;
     private LocalDateTime timestamp;
-    private AswErrors errorCode;
+    private SocsharedErrors errorCode;
 
-    public RestApiError(Exception exc, HttpStatus status, ServletWebRequest webRequest, AswErrors errorCode) {
+    public RestApiError(Exception exc, HttpStatus status, ServletWebRequest webRequest, SocsharedErrors errorCode) {
         this.status = status.value();
         this.error = status;
-        Throwable rootCause = NestedExceptionUtils.getRootCause(exc);
-        if (rootCause != null)
-            this.message = rootCause.getMessage();
+        this.message = exc.getMessage();
         this.timestamp = LocalDateTime.now();
         this.path = webRequest.getRequest().getRequestURI();
         this.errorCode = errorCode;

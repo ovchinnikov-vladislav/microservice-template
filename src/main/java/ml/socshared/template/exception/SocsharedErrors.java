@@ -10,13 +10,25 @@ import lombok.RequiredArgsConstructor;
         description = "Enumeration of error codes")
 @Getter
 @RequiredArgsConstructor
-public enum AswErrors {
+public enum SocsharedErrors {
 
     @ApiModelProperty("Internal error")
     INTERNAL("Internal error"),
 
     @ApiModelProperty("Internal error")
-    CLIENT_ALREADY_EXISTS("Client already exists");
+    CLIENT_ALREADY_EXISTS("Client already exists"),
+
+    @ApiModelProperty("Internal error")
+    NOT_FOUND("Not found"),
+
+    @ApiModelProperty("Internal error")
+    UNAVAILABLE_REQUEST("Unavailable request"),
+
+    @ApiModelProperty("Internal error")
+    BAD_REQUEST("Bad request"),
+
+    @ApiModelProperty("Internal error")
+    BAD_GATEWAY("Bad gateway");
 
     private final String message;
 }

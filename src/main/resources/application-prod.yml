@@ -14,16 +14,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-keycloak:
-  realm: socshared
-  auth-server-url: http://keycloak:9999/auth
-  ssl-required: none
-  resource: name-client-to-keycloak
-  use-resource-role-mappings: false
-  principal-attribute: preferred_username
-  cors: true
-  bearer-only: true
-
 facebook:
   redirect:
     uri: https://socshared.ml/connect/fb

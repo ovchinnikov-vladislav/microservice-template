@@ -20,17 +20,6 @@ services:
     ports:
       - 9411:9411
 
-  keycloak:
-    image: jboss/keycloak
-    environment:
-      KEYCLOAK_USER: socshared
-      KEYCLOAK_PASSWORD: socshared
-      KEYCLOAK_FRONTEND_URL: https://keycloak.socshared.ml/auth
-    deploy:
-      replicas: 1
-    ports:
-      - 9999:8080
-
   microservice-template:
     container_name: socshared-microservice-template
     image: vee97/socshared-microservice-template
