@@ -17,7 +17,7 @@ import javax.servlet.ServletException;
 @Slf4j
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private ResponseEntity<RestApiError> buildErrorResponse(Exception exc, HttpStatus httpStatus,
+    private ResponseEntity<RestApiError> buildErrorResponse(Throwable exc, HttpStatus httpStatus,
                                                             ServletWebRequest webRequest, SocsharedErrors errorCode) {
         return new ResponseEntity<>(new RestApiError(exc, httpStatus, webRequest, errorCode), httpStatus);
     }
@@ -28,11 +28,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(exc, exc.getHttpStatus(), webRequest, exc.getErrorCode());
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ServletException.class)
-    public ResponseEntity<RestApiError> handlePrintException(ServletWebRequest webRequest, ServletException exc) {
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Throwable.class)
+    public ResponseEntity<RestApiError> handlePrintException(ServletWebRequest webRequest, Throwable exc) {
         log.error(exc.getMessage());
-        return buildErrorResponse(exc, HttpStatus.NOT_FOUND, webRequest, SocsharedErrors.NOT_FOUND);
+        exc.printStackTrace();
+        return buildErrorResponse(exc, HttpStatus.INTERNAL_SERVER_ERROR, webRequest, SocsharedErrors.INTERNAL);
     }
 }
 

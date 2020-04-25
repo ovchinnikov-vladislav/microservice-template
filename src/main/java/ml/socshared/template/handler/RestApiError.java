@@ -29,7 +29,7 @@ public class RestApiError {
     private LocalDateTime timestamp;
     private SocsharedErrors errorCode;
 
-    public RestApiError(Exception exc, HttpStatus status, ServletWebRequest webRequest, SocsharedErrors errorCode) {
+    public RestApiError(Throwable exc, HttpStatus status, ServletWebRequest webRequest, SocsharedErrors errorCode) {
         this.status = status.value();
         this.error = status;
         this.message = exc.getMessage();
