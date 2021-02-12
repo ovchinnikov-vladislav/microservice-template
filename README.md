@@ -1,4 +1,4 @@
-# SocShared Microservice Template
+# Microservice Template
 
 В данном репозитории расположен шаблон реализуемых микросервисов.
 
