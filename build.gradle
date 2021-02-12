@@ -25,13 +25,16 @@ dependencies {
     implementation 'com.google.guava:guava:28.1-jre'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.3.0.RELEASE'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1'
 }
 
 bootJar {
-    baseName = 'socshared-microservice-template'
+    baseName = 'microservice-template'
     version = '1.0.0-SNAPSHOT'
 }
 
 springBoot {
-    mainClassName = 'ml.socshared.template.Application'
+    mainClassName = 'ml.vovchinnikov.template.Application'
 }
